@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "https://github.com/ptr-geeks/phaser-game",
   "author": "ptr-geeks",
-  "license": "GPLv3",
+  "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --config webpack.develop.js --open",
     "build": "webpack --config webpack.config.js"
