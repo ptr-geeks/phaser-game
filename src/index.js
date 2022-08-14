@@ -1,12 +1,25 @@
 import * as Phaser from 'phaser';
-import PTRScene from './scenes/ptr';
+import Preloader from './scenes/preloader';
+import Game from './scenes/game';
 
 const config = {
   name: 'app',
   type: Phaser.AUTO,
+  scale: {
+    autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
+    mode: Phaser.Scale.NONE,
+  },
+  physics: {
+    default: 'arcade',
+    arcade: {
+        gravity: { y: "50" },
+        debug: true
+    }
+  },
   width: 800,
   height: 600,
-  scene: [PTRScene],
+  transparent: true,
+  scene: [Preloader, Game],
 };
 
 window.game = new Phaser.Game(config);
