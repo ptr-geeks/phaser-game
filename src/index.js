@@ -1,6 +1,7 @@
 import * as Phaser from 'phaser';
 import Preloader from './scenes/preloader';
 import Game from './scenes/game';
+import UI from './scenes/ui';
 
 const config = {
   name: 'app',
@@ -19,7 +20,7 @@ const config = {
   width: 800,
   height: 600,
   transparent: true,
-  scene: [Preloader, Game],
+  scene: [Preloader, Game, UI],
 };
 
 window.game = new Phaser.Game(config);
