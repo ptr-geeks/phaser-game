@@ -1,23 +1,29 @@
 import Phaser from 'phaser';
 
-enum ImageNames {
-  PhaserLogo = 'phaser3-logo'
-}
-
 class PlayGame extends Phaser.Scene {
-  image: Phaser.GameObjects.Image;
+
   
   constructor() {
     super('PlayGame');
   }
+
   preload(): void {
-    this.load.image(ImageNames.PhaserLogo, 'assets/phaser3-logo.png');
+    this.load.tilemapTiledJSON('map', 'assets/map.json');
+    this.load.image('sprites', 'assets/sprites.png');
   }
+
   create(): void {
-    this.image = this.add.image(400, 300, ImageNames.PhaserLogo);
+    const map = this.make.tilemap({ key: 'map' });
+    const tileSet = map.addTilesetImage('sprites', 'sprites');
+
+    const backgroundLayer = map.createLayer('Background', tileSet!, 0, -424);
+    const platformsLayer = map.createLayer('Platforms', tileSet!, 0, -424);
+
+    this.cameras.main.setBounds(0, 0, 800, 600, false);
   }
+
   update(): void {
-    this.image.rotation += 0.01;
+
   }
 }
 
